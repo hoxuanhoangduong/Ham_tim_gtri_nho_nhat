@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim gia tri nho nhat</title>
+</head>
+<body>
+<h1>Tìm giá trị nhỏ nhất của một chuỗi </h1>
+<input id="input" placeholder="Nhập các phần tử" type="number">
+<button type="button" onclick="createArr()">Thêm vào chuỗi</button>
+<p id="chuoiInRa"></p>
+<button type="button" onclick="checkArray()">Check</button>
+<p id="min"></p>
+<p id="Max"></p>
+<script>
+    let array = [];
+
+    function createArr() {
+        let x = document.getElementById('input').value;
+        array.push(x);
+        console.log(array);
+        document.getElementById('chuoiInRa').innerHTML = '[' + array + ']';
+    }
+
+    function findMin(arr) {
+        let min = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    function findMax(arr) {
+        let Max = arr[arr.length - 1];
+        for (let i = arr.length - 2; i >= 0; i--) {
+            if (Max < arr[i]) {
+                Max = arr[i];
+            }
+        }
+        return Max;
+    }
+
+    function checkArray(){
+    let min = findMin(array);
+    let Max = findMax(array);
+    document.getElementById('Max').innerHTML = 'Giá trị lớn nhất của chuỗi là : ' + Max;
+    document.getElementById('min').innerHTML = 'Giá trị nhỏ nhất của chuỗi là : ' + min;
+    }
+
+</script>
+</body>
+</html>
